@@ -111,10 +111,36 @@ function calTotal(){
     let memoryCost1 = parseInt(extraMemoryCost1.innerText);
     let storageCost1 = parseInt(extraStorageCost1.innerText);
     let deliveryCharge1 = parseInt(extraDeliveryCharge.innerText);
-    let grandTotal = memoryCost1 + storageCost1 + deliveryCharge1 + 1299;
-    totalItemPrice.innerText = grandTotal;
+    let subTotal = memoryCost1 + storageCost1 + deliveryCharge1 + 1299;
+    totalItemPrice.innerText = subTotal;
 
 }
+
+// Promo code apply and grand Total
+
+document.getElementById('promo-code-btn').addEventListener('click',function(){
+    //console.log('click');
+    const promoCode = document.getElementById('promo-code');
+    let promoCodeInput = promoCode.value;
+    let discountPrice = parseInt(totalItemPrice.innerText);
+    let discountTotal = 0;
+    // console.log(promoCodeInput);
+    if(promoCodeInput == 'stevekaku'){
+        discountTotal = discountPrice * 0.2 ;
+        console.log(discountTotal);
+    }
+    else{
+        console.log('promo code not matched');
+    }
+
+    const subGrandTotalText = document.getElementById('grand-total');
+    let subGrandTotal = parseInt(subGrandTotalText.innerText);
+    let grandTotal = subGrandTotal - discountTotal;
+    console.log(grandTotal);
+    subGrandTotalText.innerText = grandTotal;  
+})
+
+
 
 
 
