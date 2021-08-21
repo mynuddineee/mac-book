@@ -10,8 +10,7 @@ function extraMemoryCost(isExtramemoryCost){
         memoryCost = 180;
     }
     extraMemoryCost1.innerText = memoryCost;
-    // const totalItemPrice = document.getElementById('total-price');
-    // totalItemPrice.innerText = 1299 + memoryCost;
+   
     calTotal();
 
  }
@@ -41,8 +40,6 @@ function extraStorageCost(isExtraCost){
         storageCost = 180;
     }
     extraStorageCost1.innerText = storageCost ;
-    // const totalItemPrice = document.getElementById('total-price');
-    // totalItemPrice.innerText = 1299 + storageCost;
     
     calTotal();
 }
@@ -54,9 +51,7 @@ document.getElementById('storage-button-256gb').addEventListener('click',functio
     let storageCost = extraStorageCost1.innerText;
     storageCost = 0;
     extraStorageCost1.innerText = storageCost ;
-    // const totalItemPrice = document.getElementById('total-price');
-    // totalItemPrice.innerText = 1299 + storageCost;
-    
+   
     calTotal();
     
 })
@@ -84,8 +79,7 @@ document.getElementById('storage-button-1tb').addEventListener('click',function(
         deliveryCharge = 20;
     }
     extraDeliveryCharge.innerText = deliveryCharge;
-    // const totalItemPrice = document.getElementById('total-price');
-    // totalItemPrice.innerText = 1299 + deliveryCharge;
+   
     calTotal();
 }
 // Delivery Charge Free
@@ -101,7 +95,7 @@ document.getElementById('delivery-charge-button').addEventListener('click',funct
   
 })
 
-// Total Price
+// Total Price function
 extraMemoryCost1 = document.getElementById('extra-memory-cost');
 extraStorageCost1 = document.getElementById('extra-storage-cost');
 extraDeliveryCharge = document.getElementById('delivery-charge');
@@ -127,19 +121,18 @@ document.getElementById('promo-code-btn').addEventListener('click',function(){
     let promoCodeInput = promoCode.value;
     let discountPrice = parseInt(totalItemPrice.innerText);
     let discountTotal = 0;
-    // console.log(promoCodeInput);
+    
     if(promoCodeInput == 'stevekaku'){
         discountTotal = discountPrice * 0.2 ;
-        //console.log(discountTotal);
     }
+
     else{
-        console.log('promo code not matched');
+        promoCode.value = 'Promo code not matched';
     }
 
     const subGrandTotalText = document.getElementById('grand-total');
     let subGrandTotal = parseInt(subGrandTotalText.innerText);
     let grandTotal = subGrandTotal - discountTotal;
-    //console.log(grandTotal);
     subGrandTotalText.innerText = grandTotal;  
 })
 
