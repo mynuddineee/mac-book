@@ -1,0 +1,9 @@
+table{
+    font-weight: 700;
+    width: 100%;
+}
+
+.total-price-row{
+    border-top: 2px solid rgb(63, 58, 58); 
+    width: auto;
+}
