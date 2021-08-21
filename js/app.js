@@ -106,6 +106,7 @@ extraMemoryCost1 = document.getElementById('extra-memory-cost');
 extraStorageCost1 = document.getElementById('extra-storage-cost');
 extraDeliveryCharge = document.getElementById('delivery-charge');
 const totalItemPrice = document.getElementById('total-price');
+const subGrandTotalText = document.getElementById('grand-total');
 
 function calTotal(){
     let memoryCost1 = parseInt(extraMemoryCost1.innerText);
@@ -113,13 +114,15 @@ function calTotal(){
     let deliveryCharge1 = parseInt(extraDeliveryCharge.innerText);
     let subTotal = memoryCost1 + storageCost1 + deliveryCharge1 + 1299;
     totalItemPrice.innerText = subTotal;
+    let subGrandTotal = parseInt(totalItemPrice.innerText);
+    subGrandTotalText.innerText = subGrandTotal;
 
 }
 
 // Promo code apply and grand Total
 
 document.getElementById('promo-code-btn').addEventListener('click',function(){
-    //console.log('click');
+    document.getElementById('promo-code-btn').disabled = true;
     const promoCode = document.getElementById('promo-code');
     let promoCodeInput = promoCode.value;
     let discountPrice = parseInt(totalItemPrice.innerText);
@@ -127,7 +130,7 @@ document.getElementById('promo-code-btn').addEventListener('click',function(){
     // console.log(promoCodeInput);
     if(promoCodeInput == 'stevekaku'){
         discountTotal = discountPrice * 0.2 ;
-        console.log(discountTotal);
+        //console.log(discountTotal);
     }
     else{
         console.log('promo code not matched');
@@ -136,7 +139,7 @@ document.getElementById('promo-code-btn').addEventListener('click',function(){
     const subGrandTotalText = document.getElementById('grand-total');
     let subGrandTotal = parseInt(subGrandTotalText.innerText);
     let grandTotal = subGrandTotal - discountTotal;
-    console.log(grandTotal);
+    //console.log(grandTotal);
     subGrandTotalText.innerText = grandTotal;  
 })
 
